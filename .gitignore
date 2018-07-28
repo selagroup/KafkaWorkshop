@@ -37,6 +37,7 @@ cmake-build-*/
 
 # File-based project format
 *.iws
+.DS_STORE
 
 # IntelliJ
 out/
