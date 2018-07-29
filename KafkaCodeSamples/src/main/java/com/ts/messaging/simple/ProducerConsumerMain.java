@@ -3,7 +3,7 @@ package com.ts.messaging.simple;
 import java.io.IOException;
 import java.util.UUID;
 
-public class SimpleConsumerProducerMain {
+public class ProducerConsumerMain {
 
     public static void main(String[] args) throws IOException {
         if(args.length < 2) {

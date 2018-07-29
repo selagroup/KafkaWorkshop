@@ -2,11 +2,15 @@ package com.ts.messaging.simple;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.StringSerializer;
 
+import java.io.Console;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.Random;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 public class SimpleProducer {
 
@@ -36,14 +40,16 @@ public class SimpleProducer {
 
         String progressAnimation = "|/-\\";
         // Produce a bunch of records
-        for(int i = 0; i < 1000000; i++) {
+        for(int i = 0; i < 1000; i++) {
             // Pick a sentence at random
             String sentence = sentences[random.nextInt(sentences.length)];
             // Send the sentence to the test topic
-            producer.send(new ProducerRecord<String, String>("test", sentence));
+            producer.send(new ProducerRecord<String, String>("tomersh", sentence));
             String progressBar = "\r" + progressAnimation.charAt(i % progressAnimation.length()) + " " + i;
             System.out.write(progressBar.getBytes());
         }
+
+        System.in.read();
 
     }
 

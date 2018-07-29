@@ -34,7 +34,6 @@ public class SimpleConsumer {
 
         while(true) {
             ConsumerRecords<String,String> records = consumer.poll(500);
-            System.out.println("===>got batch of " + records.count());
 
             for(ConsumerRecord<String,String> record : records) {
                 // Display record and count
