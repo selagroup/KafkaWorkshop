@@ -16,17 +16,8 @@ public class SimpleProducer {
 
 
     public static void Produce(String brokers) throws IOException {
-        KafkaProducer<String,String> producer ;
-        Properties properties = new Properties();
-        properties.setProperty("bootstrap.servers",brokers);
-        properties.setProperty("key.serializer",StringSerializer.class.getName());
-        properties.setProperty("value.serializer",StringSerializer.class.getName());
 
-        properties.setProperty("acks","1");
-        properties.setProperty("retries","3");
-        properties.setProperty("linger.ms","1");
-
-        producer = new KafkaProducer<>(properties);
+        KafkaProducer<String,String> producer  = BuildProducer(brokers);
 
         // So we can generate random sentences
         Random random = new Random();
@@ -44,7 +35,7 @@ public class SimpleProducer {
             // Pick a sentence at random
             String sentence = sentences[random.nextInt(sentences.length)];
             // Send the sentence to the test topic
-            producer.send(new ProducerRecord<String, String>("tomersh", sentence));
+            producer.send(new ProducerRecord<String, String>("my-topic", sentence));
             String progressBar = "\r" + progressAnimation.charAt(i % progressAnimation.length()) + " " + i;
             System.out.write(progressBar.getBytes());
         }
@@ -55,4 +46,22 @@ public class SimpleProducer {
 
 
 
+    public static KafkaProducer<String,String> BuildProducer(String brokers)
+    {
+        Properties properties = new Properties();
+        properties.setProperty("bootstrap.servers",brokers);
+        properties.setProperty("key.serializer",StringSerializer.class.getName());
+        properties.setProperty("value.serializer",StringSerializer.class.getName());
+
+        properties.setProperty("acks","1");
+        properties.setProperty("retries","3");
+        properties.setProperty("linger.ms","1");
+
+        return new KafkaProducer<String,String>(properties);
+
+
+    }
 }
+
+
+

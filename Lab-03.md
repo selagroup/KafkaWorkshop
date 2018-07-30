@@ -1,50 +1,36 @@
-# Kafka Workshop - Lab 02: Kafka CLI Commands 
+# Kafka Workshop - Lab 03: Java API and Rebalance 
 ---
 <img src="https://kafka.apache.org/images/apache-kafka.png" height="120" />
 
 ## Purpose 
 
-In this lab you will create topics and lists topics , publish data and consume it via the CLI tool.
+In this lab you will interact with the Java API and use multiple producers on the same consumer group in order to view how Kafka Re-balances
+the topic partitions among several consumers that belong to the same group.
+
+First you will create a single producer and a single consumr , then you will run multiple consumers processes.
 
 
 
-## Task 1 : create a Kafka Topic name "kafka-ws"
+## Task 1 : complete the Kafka Producer and Consumer Code
 
- 1. Run the Kafka Command that creates a topic with 3 partitions and a replication factor of 2:
+ 1. Open Lab03 starter code by from the course matterials : /KafkaWorkshop/Labs
 
- ```
- $ kafka-topic.sh --zookeeper 127.0.0.1:2181 --topic kafka-ws --partitions 3 --replication-factor 2
- ```
+ 2. Under lab03 folder you will find the source code started for the KProducer.java. 
+ follow the instructions on the code to complete the producer code
 
- 2. The Previous command has failed. read the error message and try to fix the command in order to make it work.
- (Hint : you are on a Dev Environment with only 1 Node at the cluster)
+ 3. Under lab03 folder you will find the source code started for the KConsumer.java. 
+ follow the instructions on the code to complete the consumer code
 
- 3. List all the topics in the cluster and make sure your new topic is displayed.
- ```
- $ kafka-topic.sh --zookeeper 127.0.0.1:2181 --topic --list
- ```
+ 4. From IntelliJ run the two main methods for both the consumer and the producer and verify the consumer outputs the data.
+ 
+ (Note the partition numbers on the output)
 
-## Task 2 : Produce and consume some Items using the CLI Tool
+
+## Task 2 : Ensure Re-balancing when multiple consumer processes run on the same group.
 
 
  1.	Create a simple Producer prompt that will allow you to send some string data to the topic :
 
- ```
- $ kafka-console-producer.sh --broker-list 127.0.0.1:9092 --topic myTopic 
- ```
- 
- 2.	Open a second Terminal and consume the records :
 
- ```
- $ kafka-console-consumer.sh --broker-list 127.0.0.1:9092 --topic myTopic --from-beginning
- ```
-
-3. close the consumer process and re-launch it. What happens when you run the command without the --from-beginning flag ?
-
-4. Use diffrent consumer groups in order to understand how consumer groups handles the read offset for each group seperatley.
-
- ```
- $ kafka-console-consumer.sh --broker-list 127.0.0.1:9092 --topic myTopic --from-beginning -consumer-property group.id=group1
- ```
 
 ## Good Luck !
