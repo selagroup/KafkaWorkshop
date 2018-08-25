@@ -66,7 +66,10 @@ JAR_FILE=jmxtrans-259-all.jar ./jmxtrans.sh start
 
 9. More Metrics
 
-    $ JMXTRANS_OPTS="-Dport1=55555 -Durl1=localhost -DinfluxUrl=http://INFLUXDB_IP:8086/ -DinfluxDb=kafka -DinfluxUser=admin -DinfluxPwd=admin" \
+    $ JMXTRANS_OPTS="-Dport1=55555 -Durl1=localhost -DinfluxUrl=http://127.0.0.1:8086/ -DinfluxDb=kafka -DinfluxUser=admin -DinfluxPwd=admin" \
         JAR_FILE=jmxtrans-259-all.jar ./jmxtrans.sh start
 
+  9-A : using a build in Graphana dashboard
+  https://github.com/softwaremill/confluent-playground/blob/master/metrics/kafka/ApacheKafkaBrokerMetrics.json
 
+  
