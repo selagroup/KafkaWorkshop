@@ -26,11 +26,4 @@ First you will create a single producer and a single consumr , then you will run
  (Note the partition numbers on the output)
 
 
-## Task 2 : Ensure Re-balancing when multiple consumer processes run on the same group.
-
-
- 1.	Create a simple Producer prompt that will allow you to send some string data to the topic :
-
-
-
 ## Good Luck !
