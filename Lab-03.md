@@ -1,4 +1,4 @@
-# Kafka Workshop - Lab 03: Java API and Rebalance 
+# Kafka Workshop - Lab 03: Java API
 ---
 <img src="https://kafka.apache.org/images/apache-kafka.png" height="120" />
 
