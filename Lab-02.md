@@ -44,7 +44,7 @@ In this lab you will create topics and lists topics , publish data and consume i
 4. Use diffrent consumer groups in order to understand how consumer groups handles the read offset for each group seperatley.
 
  ```
- $ kafka-console-consumer.sh --broker-list 127.0.0.1:9092 --topic myTopic --from-beginning -consumer-property group.id=group1
+ $ kafka-console-consumer.sh --broker-list 127.0.0.1:9092 --topic myTopic --from-beginning --consumer-property group.id=group1
  ```
 
 ## Good Luck !

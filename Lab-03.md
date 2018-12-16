@@ -1,4 +1,4 @@
-# Kafka Workshop - Lab 03: Java API
+# Kafka Workshop - Lab 03: Java API and Rebalance 
 ---
 <img src="https://kafka.apache.org/images/apache-kafka.png" height="120" />
 
@@ -24,6 +24,13 @@ First you will create a single producer and a single consumr , then you will run
  4. From IntelliJ run the two main methods for both the consumer and the producer and verify the consumer outputs the data.
  
  (Note the partition numbers on the output)
+
+
+## Task 2 : Ensure Re-balancing when multiple consumer processes run on the same group.
+
+
+ 1.	Create a simple Producer prompt that will allow you to send some string data to the topic :
+
 
 
 ## Good Luck !
